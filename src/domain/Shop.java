@@ -25,4 +25,24 @@ public class Shop {
         }
         return null;
     }
+
+    public String printAllProducts (){
+        String result = new String();
+        for (Product p : producten){
+            if (p instanceof Movie){
+                result += p.getClass().getSimpleName() + ": " + p.getId() + " " + p.getTitel() + "\n";
+            }
+        }
+        for (Product p : producten){
+            if (p instanceof Game){
+                result += p.getClass().getSimpleName() + ": " + p.getId() + " " + p.getTitel() + "\n";
+            }
+        }
+        for (Product p : producten){
+            if (p instanceof CD){
+                result += p.getClass().getSimpleName() + ": " + p.getId() + " " + p.getTitel() + "\n";
+            }
+        }
+        return result;
+    }
 }

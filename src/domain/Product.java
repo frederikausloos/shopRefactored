@@ -2,6 +2,7 @@ package domain;
 
 public abstract class Product {
     private String id, titel;
+    protected PriceStrategy priceStrategy;
 
     public Product(String id, String titel) {
         this.id = id;
@@ -16,5 +17,11 @@ public abstract class Product {
         return titel;
     }
 
-    public abstract double getPrice (int days);
+    public void setPriceStrategy(PriceStrategy priceStrategy) {
+        this.priceStrategy = priceStrategy;
+    }
+
+    public double getPrice (int days){
+        return priceStrategy.getPrice(days);
+    }
 }
